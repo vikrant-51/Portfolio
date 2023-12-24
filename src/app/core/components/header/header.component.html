@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+      aria-controls="navbarCollapse" aria-expanded="false">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-md-center" id="navbarCollapse">
+      <ul class="navbar-nav mb-2 mb-md-0">
+        <li class="nav-item">
+          <a class="btn btn-outline-light position-absolute top-2 end-0 translate-middle-x pdf-link" role="button"
+            (click)="scrollToSection('introduction')" href="../../../../assets/Vikrant.pdf" target="_blank"
+            data-bs-toggle="tooltip" data-bs-placement="bottom" title="Resume">
+            <i class="bi bi-person-vcard" style="font-size: 1rem;"> VIKRANT PATHANIA</i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" role="button" (click)="scrollToSection('about')"><i class="bi bi-houses-fill"
+              style="font-size: 1rem;"> About</i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" role="button" (click)="scrollToSection('projects')"><i class="bi bi-kanban-fill"
+              style="font-size: 1rem;"></i> Projects</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" role="button" (click)="scrollToSection('contact')"><i class="bi bi-link"
+              style="font-size: 1rem;"></i> Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

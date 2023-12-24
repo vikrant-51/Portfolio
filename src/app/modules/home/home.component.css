@@ -1,0 +1,184 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* scrolling effect */
+.reveal{
+  position: relative;
+  transform: translateY(-50px);
+  opacity: 0;
+  transition: 0.5s all ease;
+}
+
+.reveal.active{
+  /* animation: active-ani; */
+  transform: translateY(0) ;
+  opacity: 1;
+}
+
+.active.fade-bottom {
+  animation: fade-bottom 0.5s ease-in;
+}
+.active.fade-left {
+  animation: fade-left 0.5s ease-in;
+}
+.active.fade-right {
+  animation: fade-right 0.5s ease-in;
+}
+.active.fade-top {
+  animation: fade-top 0.5s ease-in;
+}
+
+@keyframes fade-bottom {
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+
+  25% {
+    transform: translateY(75px);
+    opacity: 0.25;
+  }
+  50% {
+    transform: translateY(50px);
+    opacity: 0.5;
+  }
+  75% {
+    transform: translateY(25px);
+    opacity: 0.75;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes fade-top {
+  0% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  25%{
+    transform: translateY(-75px);
+    opacity: 0.25;
+  }
+  50%{
+    transform: translateY(-50px);
+    opacity: 0.5;
+  }
+  75%{
+    transform: translateY(-25px);
+    opacity: 0.75;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-left {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  25%{
+    transform: translateX(-75px);
+    opacity: 0.25;
+  }
+  50%{
+    transform: translateX(-50px);
+    opacity: 0.5;
+  }
+  75%{
+    transform: translateX(-25px);
+    opacity: 0.75;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes fade-right {
+  0% {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+
+  25% {
+    transform: translateX(75px);
+    opacity: 0.25;
+  }
+  50% {
+    transform: translateX(50px);
+    opacity: 0.5;
+  }
+  75% {
+    transform: translateX(25px);
+    opacity: 0.75;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 767.5px){
+  #project1{
+    margin-bottom: 10px;
+  }
+
+  #aboutMe{
+
+  }
+}
+
+/* @media screen and (max-width: 767px){
+
+} */
+
+.wrapper {
+  height: 90vh;
+  background-color: #212529;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+}
+/* Mouse flashlight effect */
+/*.shadow {
+  position: absolute;
+  width: 200vw;
+  height: 200vh;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  background-image: radial-gradient(circle at center, transparent, #000 15%);
+} */
+
+
+/* Project1 */
+/* #project1{
+  background-image: url("../../../assets/AttendanceMonitoringSystem.png");
+  background-size: contain;
+} */
+
+/* .shape{
+   background-image: url(../../../assets/cyberpunk.jpg);
+}
+
+@media screen and (max-width: 991px){
+  .shape{
+    top: 55px;
+  }
+}
+@media screen and (max-width: 425px){
+  .shape{
+    top: 500px;
+  }
+}
+@media screen and (max-width: 977px){
+  .shape{
+    top: 55px;
+  }
+} */

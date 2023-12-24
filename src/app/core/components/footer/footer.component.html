@@ -1,0 +1,55 @@
+<div class="text-center bg-light">
+  <div class="px-4 py-5 my-5 text-center" id="contact">
+    <h1 class="display-5 fw-bold">Get in touch!</h1>
+    <div class="col-lg-6 mx-auto">
+      <p class="lead mb-4">
+        I will be happy to receive your contact if you want to talk about new
+        opportunities. Write me, and I will reply as soon as I see your message.
+      </p>
+      <div class="contactForm">
+        <form [formGroup]="sendMail" (ngSubmit)="onSubmit()">
+
+          <div class="form-floating m-3">
+            <input type="text" class="form-control" formControlName="name" id="name" placeholder="Name">
+            <label for="name">Name</label>
+          </div>
+
+          <!-- Email Input -->
+          <div class="form-floating m-3">
+            <input type="email" class="form-control" formControlName="email" id="email" placeholder="name@example.com">
+            <label for="email">Email address</label>
+          </div>
+
+          <!-- Message Input -->
+          <div class="form-floating m-3">
+            <textarea class="form-control" formControlName="message" placeholder="Leave a message here"
+              id="floatingTextarea2" style="height: 200px"></textarea>
+            <label for="floatingTextarea2">Message</label>
+          </div>
+
+          <!-- Submit success message -->
+          @if(isVisible){
+          <div class="position-fixed align-items-center bottom-0 start-50 translate-middle-x" id="submitSuccessMessage" role="alert">
+            <div class="alert alert-success text-center mb-3">
+              <!-- <p>Name: {{name?.value}}</p>
+              <p>From: {{email?.value}}</p>
+              <p>Message: {{message?.value}}</p> -->
+              Your message is send successfully.
+            </div>
+          </div>
+          }
+
+          <!-- Submit button -->
+          <div class="d-grid col-9 mx-auto">
+            <button class="btn btn-dark btn-lg" id="submitBtn" [disabled]="!sendMail.valid" type="submit">
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
