@@ -7,9 +7,15 @@ import { HomeModule } from './app/modules/home/home.module';
 import { AppRoutingModule } from './app/app-routing.module';
 import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
 import { provideHttpClient } from '@angular/common/http';
+import { provideToastr } from 'ngx-toastr';
+import { provideAnimations } from '@angular/platform-browser/animations';
 
 
 bootstrapApplication(AppComponent, {
-    providers: [importProvidersFrom(BrowserModule, AppRoutingModule, HomeModule), provideHttpClient()]
+  providers: [importProvidersFrom(BrowserModule, AppRoutingModule, HomeModule), provideAnimations(), provideToastr({
+    timeOut: 3000,
+    positionClass: 'toast-bottom-center',
+    preventDuplicates: true,
+  }), provideHttpClient()]
 })
   .catch(err => console.error(err));

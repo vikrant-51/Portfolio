@@ -27,18 +27,6 @@
             <label for="floatingTextarea2">Message</label>
           </div>
 
-          <!-- Submit success message -->
-          @if(isVisible){
-          <div class="position-fixed align-items-center bottom-0 start-50 translate-middle-x" id="submitSuccessMessage" role="alert">
-            <div class="alert alert-success text-center mb-3">
-              <!-- <p>Name: {{name?.value}}</p>
-              <p>From: {{email?.value}}</p>
-              <p>Message: {{message?.value}}</p> -->
-              Your message is send successfully.
-            </div>
-          </div>
-          }
-
           <!-- Submit button -->
           <div class="d-grid col-9 mx-auto">
             <button class="btn btn-dark btn-lg" id="submitBtn" [disabled]="!sendMail.valid" type="submit">

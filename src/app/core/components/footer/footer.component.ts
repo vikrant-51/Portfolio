@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { EmailService } from '../../services/email/email.service';
+import { ToastrService, ToastContainerDirective} from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-footer',
@@ -10,18 +12,20 @@ import { EmailService } from '../../services/email/email.service';
   imports: [ReactiveFormsModule]
 })
 export class FooterComponent {
-
+  mailtoLinkElement!: string;
   isVisible: boolean = false;
   to!: string;
   sendMail = new FormGroup({
-    name: new FormControl('', [Validators.required]),
-    email: new FormControl('', [Validators.email, Validators.required]),
-    message: new FormControl('', [Validators.required])
+    name: new FormControl('Vikrant', [Validators.required]),
+    email: new FormControl('User@gmail.com', [Validators.email, Validators.required]),
+    message: new FormControl('This is a sample mail!', [Validators.required])
   });
 
 
-  constructor(private emailService: EmailService) { }
-
+  constructor(private emailService: EmailService, private toastr: ToastrService) { }
+  ngOnInit(): void {
+    // this.toastr.overlayContainer = this.toastContainer;
+  }
   get name() {
     return this.sendMail.get('name');
   }
@@ -45,24 +49,14 @@ export class FooterComponent {
 
     const emailData = {
       name: nameValue,
-      email: emailValue,
       message: `Hello, this is a test email.`
     };
 
-    const result = this.emailService.sendEmail(emailData);
-    this.to = result.To;
-    this.displaySuccessMessage();
-    console.log(result);
+    this.mailtoLinkElement = this.emailService.sendEmail(emailData);
+    this.toastr.success('Email sent successfully!', 'Success');
+    // console.log(this.emailService.sendEmail(emailData));
 
-  }
-
-  displaySuccessMessage() {
-    this.isVisible = true;
-    // Automatically hide the success message after 3 seconds
-    setTimeout(() => {
-      this.isVisible = false;
-      this.sendMail.reset();
-    }, 3000);
+    this.sendMail.reset();
   }
 
 }
