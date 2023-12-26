@@ -16,9 +16,9 @@ export class FooterComponent {
   isVisible: boolean = false;
   to!: string;
   sendMail = new FormGroup({
-    name: new FormControl('Vikrant', [Validators.required]),
-    email: new FormControl('User@gmail.com', [Validators.email, Validators.required]),
-    message: new FormControl('This is a sample mail!', [Validators.required])
+    name: new FormControl('', [Validators.required]),
+    email: new FormControl('', [Validators.email, Validators.required]),
+    message: new FormControl('', [Validators.required])
   });
 
 
