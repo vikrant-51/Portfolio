@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { EmailService } from '../../services/email/email.service';
-import { ToastrService, ToastContainerDirective} from 'ngx-toastr';
+import { ToastrService} from 'ngx-toastr';
 
 
 @Component({
