@@ -1,5 +1,3 @@
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-
 
 import { importProvidersFrom } from '@angular/core';
 import { AppComponent } from './app/app.component';
@@ -9,10 +7,12 @@ import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
 import { provideHttpClient } from '@angular/common/http';
 import { provideToastr } from 'ngx-toastr';
 import { provideAnimations } from '@angular/platform-browser/animations';
+import { RouterModule } from '@angular/router';
+import { routes } from './app/app.routes';
 
 
 bootstrapApplication(AppComponent, {
-  providers: [importProvidersFrom(BrowserModule, AppRoutingModule, HomeModule), provideAnimations(), provideToastr({
+  providers: [importProvidersFrom(RouterModule.forRoot(routes, { useHash: true }),BrowserModule, AppRoutingModule, HomeModule), provideAnimations(), provideToastr({
     timeOut: 3000,
     positionClass: 'toast-bottom-center',
     preventDuplicates: true,
