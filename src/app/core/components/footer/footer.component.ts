@@ -23,9 +23,7 @@ export class FooterComponent {
 
 
   constructor(private emailService: EmailService, private toastr: ToastrService) { }
-  ngOnInit(): void {
-    // this.toastr.overlayContainer = this.toastContainer;
-  }
+
   get name() {
     return this.sendMail.get('name');
   }
@@ -54,7 +52,6 @@ export class FooterComponent {
 
     this.mailtoLinkElement = this.emailService.sendEmail(emailData);
     this.toastr.success('Email sent successfully!', 'Success');
-    // console.log(this.emailService.sendEmail(emailData));
 
     this.sendMail.reset();
   }
