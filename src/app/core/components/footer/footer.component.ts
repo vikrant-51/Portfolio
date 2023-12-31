@@ -51,7 +51,8 @@ export class FooterComponent {
     };
 
     this.mailtoLinkElement = this.emailService.sendEmail(emailData);
-    this.toastr.success('Email sent successfully!', 'Success');
+    this.toastr.success('Email sent successfully!', 'Success',{timeOut: 10000,
+      positionClass: 'toast-bottom-right'});
 
     this.sendMail.reset();
   }

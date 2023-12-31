@@ -18,13 +18,6 @@ export class EmailService {
       name: emailData.name,
       message: emailData.message
     };
-
-    // const resultBack = {
-    //   To: this.emailUrl,
-    //   From: data.email,
-    //   Name: data.name,
-    //   Message: data.message
-    // }
     const mailto = `mailto:${this.adminEmail}?subject=${encodeURIComponent(`${data.name} contacted via Portfolio`)}&body=${encodeURIComponent(data.message)}`;
     window.location.href = mailto;
     return mailto;

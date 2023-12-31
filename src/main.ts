@@ -12,10 +12,6 @@ import { routes } from './app/app.routes';
 
 
 bootstrapApplication(AppComponent, {
-  providers: [importProvidersFrom(RouterModule.forRoot(routes, { useHash: true }),BrowserModule, AppRoutingModule, HomeModule), provideAnimations(), provideToastr({
-    timeOut: 3000,
-    positionClass: 'toast-bottom-center',
-    preventDuplicates: true,
-  }), provideHttpClient()]
+  providers: [importProvidersFrom(RouterModule.forRoot(routes, { useHash: true }), BrowserModule, AppRoutingModule, HomeModule), provideAnimations(), provideToastr({preventDuplicates: true,}), provideHttpClient()]
 })
   .catch(err => console.error(err));
