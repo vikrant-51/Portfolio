@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Inject, PLATFORM_ID } from '@angular/core';
 import { ScrollService } from '../../services/scroll/scroll.service';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
     selector: 'app-header',
@@ -9,7 +10,9 @@ import { ScrollService } from '../../services/scroll/scroll.service';
 })
 export class HeaderComponent{
   tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
-  constructor(private scrollService: ScrollService) {
+  assetUrl: SafeResourceUrl;
+  constructor(private scrollService: ScrollService, private sanitizer: DomSanitizer, @Inject(PLATFORM_ID) private platformId: Object) {
+    this.assetUrl = this.sanitizer.bypassSecurityTrustResourceUrl('assets/Resume/Vikrant.pdf');
   }
   ngOnInit(): void {
   }
