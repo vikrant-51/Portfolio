@@ -11,7 +11,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 export class HeaderComponent{
   tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
   assetUrl: SafeResourceUrl;
-  constructor(private scrollService: ScrollService, private sanitizer: DomSanitizer, @Inject(PLATFORM_ID) private platformId: Object) {
+  constructor(private scrollService: ScrollService, private sanitizer: DomSanitizer) {
     this.assetUrl = this.sanitizer.bypassSecurityTrustResourceUrl('assets/Resume/Vikrant.pdf');
   }
   ngOnInit(): void {
