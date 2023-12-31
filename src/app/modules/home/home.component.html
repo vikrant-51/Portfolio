@@ -206,33 +206,28 @@
                 <h2 class="card-title">{{ project.title }}</h2>
                 <p class="card-text">{{ project.description }}</p>
 
-                <!-- <div class="d-flex justify-content-between m-4"> -->
-                  <div class="m-3">
-                    <h5>Key Features</h5>
-                    <div class="d-flex">
-                      @for(feature of project.features; track feature; let even = $even;let odd = $odd;){
-                      @if(even){
-                        <h6 class="border border-2 rounded-pill border-danger text-warning text-center p-2 m-3">{{feature}}</h6>
-                      }@else{
-                      <h6 class="border border-2 rounded-pill border-warning text-danger p-2 m-3">{{feature}}</h6>
-                      }
-                      }
-                    </div>
+                <div class="m-3">
+                  <h5>Key Features</h5>
+                  <div class="d-flex">
+                    @for(feature of project.features; track feature; let even = $even;let odd = $odd; let idx = $index){
+                    <h6 class="border border-2 rounded-pill p-2 m-3" (mouseover)="changeColor(idx)"
+                      [ngClass]="{'border-warning text-danger': even, 'border-danger text-warning': odd}">
+                      {{feature}}
+                    </h6>
+                    }
                   </div>
+                </div>
 
-                  <div class="m-3">
-                    <h5>Technologies Used</h5>
-                    <div class="d-flex">
-                      @for(technology of project.technologies; track technology; let even = $even;let odd = $odd;){
-                      @if(even){
-                      <h6 class="border border-2 rounded-pill border-danger text-warning text-center p-2 m-3">{{technology}}</h6>
-                      }@else{
-                      <h6 class="border border-2 rounded-pill border-warning text-danger p-2 m-3">{{technology}}</h6>
-                      }
-                      }
-                    </div>
+                <div class="m-3">
+                  <h5>Technologies Used</h5>
+                  <div class="d-flex">
+                    @for(technology of project.technologies; track technology; let even = $even;let odd = $odd;){
+                    <h6 class="border border-2 rounded-pill p-2 m-3"
+                      [ngClass]="{'border-danger text-warning': even, 'border-warning text-danger': odd}">{{technology}}
+                    </h6>
+                    }
                   </div>
-                <!-- </div> -->
+                </div>
 
                 <a class="btn btn-dark btn-outline-light" href="{{ project.link }}" target="_blank">GitHub
                   Repository</a>

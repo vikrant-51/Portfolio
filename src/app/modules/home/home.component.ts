@@ -1,16 +1,19 @@
-import { Component, ElementRef, HostListener, OnInit, Renderer2 } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FetchProjectsService } from 'src/app/core/services/fetchProject/fetch-projects.service';
 import { ScrollService } from 'src/app/core/services/scroll/scroll.service';
 import { ScrollingEffectService } from 'src/app/core/services/scrollingEffect/scrolling-effect.service';
-
+import { CommonModule } from '@angular/common';
 @Component({
     selector: 'app-home',
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.css'],
-    standalone: true
+    standalone: true,
+    imports: [CommonModule]
+
 })
 export class HomeComponent implements OnInit {
   projects!: any[];
+  hoveredIndex: number|null = null;
 
   constructor(private scrollingEffect: ScrollingEffectService, private scrollService: ScrollService, private fetchProjects: FetchProjectsService) {
   }
@@ -23,5 +26,9 @@ export class HomeComponent implements OnInit {
   }
   scrollToSection(sectionID: string){
     this.scrollService.scrollToSection(sectionID);
+  }
+
+  changeColor(index:number){
+    this.hoveredIndex = index;
   }
 }
