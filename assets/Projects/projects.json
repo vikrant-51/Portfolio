@@ -1,7 +1,7 @@
 [
   {
     "title": "Attendance Monitoring App",
-    "description": "An app developed using Ionic, Angular, and Google Firestore for efficient attendance tracking.",
+    "description": "The Attendance Monitoring System is built using TypeScript, Angular, Ionic Framework as front end and Cloud Firestore as back end. It provides its users with the option to register as admin, student, or teacher. The admins can register directly, while the students or teachers have to register using an admin UID, which will be provided by the admin. ",
     "features": [
       "Record attendance",
       "Check attendance",
@@ -9,8 +9,8 @@
       "Real-time tracking"
     ],
     "technologies": [
-      "Ionic Framework",
       "Angular",
+      "Ionic Framework",
       "Google Firestore"
     ],
     "link": "https://github.com/your-username/attendance-monitoring-app",
@@ -18,16 +18,15 @@
       "assets/AMS/AMSHome.png",
       "assets/AMS/LoginUser.png",
       "assets/AMS/RegisterUser.png"
-
     ]
   },
   {
     "title": "Notes Making",
-    "description": "A web application for storing notes using JavaScript to access the local browser storage. The app features a search feature in the navigation bar and a delete option for the saved notes.",
+    "description": "The Notes Making is a notes storage web application utilizing local browser storage through JavaScript. Implemented note search functionality in the navigation bar and enabled users to delete saved notes.",
     "features": [
       "Store and manage notes",
-      "Search Notes",
-      "Delete saved notes"
+      "Delete saved notes",
+      "Search Notes"
     ],
     "technologies": [
       "JavaScript",
