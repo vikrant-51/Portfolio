@@ -162,7 +162,7 @@
 
 
 <!-- Projects -->
-<div class=" text-center text-bg-dark reveal fade-bottom" id="projects">
+<div class="text-center text-bg-dark reveal fade-bottom" id="projects">
 
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
     <path fill="#fff" fill-opacity="1"
@@ -178,19 +178,15 @@
   </div>
   <div class="py-5 mx-3">
     <div class="row">
-      @for (project of projects; track project) {
+      @for (project of projects; track project;  let even = $even;let odd = $odd; ) {
       <div class="col-md-12 mb-4">
-        <div class="card reveal fade-left bg-dark  border-4 border-light">
+        <div class="card reveal fade-left bg-dark border-4 border-light" [ngClass]="{'fade-left': even, 'fade-right': odd}">
           <div class="card-body">
             <div class="row">
               <!-- Project Image (Left Side) -->
+              <h2 class="card-title text-light mb-3 d-md-none">{{ project.title }}</h2>
               <div class="col-md-5">
                 <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-                  <!-- <div class="carousel-indicators">
-                        @for(image of project.images; track image; let idx = $index) {
-                          <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="{idx}" class="{{ idx === 0 ? 'active' : '' }}" aria-current="true" aria-label="Slide {idx + 1}"></button>
-                        }
-                      </div> -->
                   <div class="carousel-inner">
                     @for(image of project.images; track image; let first = $first;){
                     <div class="carousel-item {{ first ? 'active' : '' }}">
@@ -202,34 +198,34 @@
               </div>
 
               <!-- Project Details (Right Side) -->
-              <div class="col-md-7 text-bg-dark">
-                <h2 class="card-title">{{ project.title }}</h2>
-                <p class="card-text">{{ project.description }}</p>
+              <div class="col-md-7 mb-3 text-bg-dark">
+                <h2 class="card-title text-light mb-3 d-none d-md-block">{{ project.title }}</h2>
+                <p class=" fst-italic m-3">{{ project.description }}</p>
 
-                <div class="m-3">
+                <div>
                   <h5>Key Features</h5>
-                  <div class="d-flex">
+                  <div class="d-flex flex-row flex-wrap">
                     @for(feature of project.features; track feature; let even = $even;let odd = $odd; let idx = $index){
                     <h6 class="border border-2 rounded-pill p-2 m-3" (mouseover)="changeColor(idx)"
                       [ngClass]="{'border-warning text-danger': even, 'border-danger text-warning': odd}">
                       {{feature}}
                     </h6>
-                    }
-                  </div>
+                  }
+                </div>
                 </div>
 
-                <div class="m-3">
+                <div>
                   <h5>Technologies Used</h5>
-                  <div class="d-flex">
+                  <div class="d-flex flex-wrap">
                     @for(technology of project.technologies; track technology; let even = $even;let odd = $odd;){
-                    <h6 class="border border-2 rounded-pill p-2 m-3"
+                      <h6 class="border border-2 rounded-pill p-2 m-3"
                       [ngClass]="{'border-danger text-warning': even, 'border-warning text-danger': odd}">{{technology}}
                     </h6>
                     }
                   </div>
                 </div>
 
-                <a class="btn btn-dark btn-outline-light" href="{{ project.link }}" target="_blank">GitHub
+                <a class="btn btn-outline-light  btn-lg px-4 gap-3" href="{{ project.link }}" target="_blank">GitHub
                   Repository</a>
               </div>
             </div>
